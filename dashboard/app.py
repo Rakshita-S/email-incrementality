@@ -1,4 +1,4 @@
-"""Phase 5: Streamlit dashboard for the email experiment.
+"""Streamlit dashboard for the email experiment.
 
 Run from the project root:
     streamlit run dashboard/app.py
@@ -124,8 +124,10 @@ st.dataframe(pol.style.format({"Everyone": "${:,.0f}", "No one": "${:,.0f}", "Be
              use_container_width=True)
 best = pol["Best targeting"].idxmax() if pol["Best targeting"].max() > 0 else None
 if best:
-    st.success(f"**Recommendation at ${cost:.2f}/email and {margin:.0%} margin:** {pol.loc[best, 'Recommendation'].lower()} "
-               f"with the **{best}**, worth about **${pol.loc[best, 'Best targeting']:,.0f}** per 10,000 customers.")
+    st.success(f"**Recommendation at \\${cost:.2f}/email and {margin:.0%} margin:** {pol.loc[best, 'Recommendation'].lower()} "
+               f"with the **{best}**, worth about **\\${pol.loc[best, 'Best targeting']:,.0f}** per 10,000 customers.")
+
+
 else:
     st.warning("At these assumptions no email policy is profitable.")
 
